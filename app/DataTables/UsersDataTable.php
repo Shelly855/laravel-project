@@ -43,16 +43,19 @@ class UsersDataTable extends DataTable
             ->setTableId('users-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+
+            // Make sure this is not commented out
+            ->dom('Bfrtip')
+
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
-                // Button::make('excel'),
-                // Button::make('csv'),
-                // Button::make('pdf'),
-                // Button::make('print'),
-                // Button::make('reset'),
-                // Button::make('reload')
+                Button::make('excel'),
+                Button::make('csv'),
+                Button::make('pdf'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
             ]);
     }
 

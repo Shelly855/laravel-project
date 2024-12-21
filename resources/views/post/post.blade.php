@@ -10,9 +10,11 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <!-- Create New Button -->
-                    <div class="mb-4">
-                        <button type="button" class="btn btn-primary">Create New Post</button>
-                    </div>
+                    @role('writer|admin')
+                        <div class="mb-4">
+                            <button type="button" class="btn btn-primary">Create New Post</button>
+                        </div>
+                    @endrole
 
                     <!-- Table -->
                     <table class="table table-bordered">
@@ -33,7 +35,9 @@
                                     <td>{{ $post->category }}</td>
                                     <td>{{ $post->created_at->format('Y-m-d') }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-warning btn-sm">Edit</button>
+                                        @role('editor|writer|admin')
+                                            <button type="button" class="btn btn-warning btn-sm">Edit</button>
+                                        @endrole
                                     </td>
                                 </tr>
                             @endforeach
